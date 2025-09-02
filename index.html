@@ -1,0 +1,1315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ratul Das | The Harmonium Programmer</title>
+    <meta name="description" content="Ratul Das - Computer Science Student from Bangladesh bridging traditional Bengali music with modern programming. Full-stack developer, harmonium virtuoso, artist, and rural education advocate.">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+            scroll-behavior: smooth;
+        }
+
+        /* Animated Background */
+        .bg-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .musical-note {
+            position: absolute;
+            font-size: 20px;
+            animation: float 15s infinite linear;
+            opacity: 0.3;
+            color: #4ECDC4;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 0.3; }
+            90% { opacity: 0.3; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            padding: 1rem 2rem;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(20px);
+            z-index: 1000;
+            transition: all 0.3s ease;
+            border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            color: #ffffff;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+        }
+
+        .nav-links a:hover {
+            color: #FF6B35;
+            background: rgba(78, 205, 196, 0.1);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            padding: 2rem;
+            padding-top: 5rem;
+        }
+
+        .hero-content h1 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4, #FFD700);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: gradientShift 4s ease-in-out infinite;
+        }
+
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 3vw, 1.8rem);
+            margin-bottom: 1rem;
+            opacity: 0.9;
+            color: #b8c4d4;
+        }
+
+        .hero-tagline {
+            font-size: clamp(1rem, 2vw, 1.3rem);
+            margin-bottom: 2rem;
+            color: #4ECDC4;
+            font-weight: 500;
+        }
+
+        .hero-image {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin: 2rem auto;
+            border: 4px solid transparent;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4) border-box;
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+            animation: heroImageFloat 3s ease-in-out infinite;
+            object-fit: cover;
+        }
+
+        @keyframes heroImageFloat {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+            gap: 1rem;
+            margin: 2rem 0;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .stat-item {
+            background: rgba(78, 205, 196, 0.1);
+            padding: 1rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #4ECDC4;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            display: inline-block;
+            font-size: 1rem;
+        }
+
+        .btn-primary {
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            color: white;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: #4ECDC4;
+            border: 2px solid #4ECDC4;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 35px rgba(255, 107, 53, 0.4);
+        }
+
+        /* Sections */
+        .section {
+            padding: 5rem 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            font-weight: 700;
+        }
+
+        /* About Section */
+        .about-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .about-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .about-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(78, 205, 196, 0.2);
+        }
+
+        .about-card h3 {
+            color: #FF6B35;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .project-card {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            transition: all 0.3s ease;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(255, 107, 53, 0.3);
+        }
+
+        .project-image {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin-bottom: 1rem;
+        }
+
+        .project-title {
+            font-size: 1.5rem;
+            color: #4ECDC4;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+
+        .project-tech {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech-tag {
+            background: rgba(78, 205, 196, 0.2);
+            color: #4ECDC4;
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .project-link {
+            color: #FF6B35;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            border: 2px solid #FF6B35;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+        }
+
+        .project-link:hover {
+            background: #FF6B35;
+            color: white;
+        }
+
+        /* Achievement Section */
+        .achievements-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .achievement-card {
+            background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(78, 205, 196, 0.1));
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .achievement-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 215, 0, 0.2);
+        }
+
+        .achievement-icon {
+            width: 60px;
+            height: 60px;
+            margin: 0 auto 1rem auto;
+            background: linear-gradient(45deg, #FFD700, #FF6B35);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+        }
+
+        .achievement-title {
+            color: #FFD700;
+            font-size: 1.3rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-desc {
+            opacity: 0.9;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .skill-category h3 {
+            color: #FF6B35;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+        }
+
+        .skill-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 0.5rem 0;
+        }
+
+        .skill-bar {
+            width: 100%;
+            height: 8px;
+            background: rgba(78, 205, 196, 0.2);
+            border-radius: 4px;
+            margin-left: 1rem;
+            overflow: hidden;
+        }
+
+        .skill-progress {
+            height: 100%;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            border-radius: 4px;
+            animation: skillLoad 2s ease-out;
+        }
+
+        @keyframes skillLoad {
+            0% { width: 0%; }
+        }
+
+        /* Art Gallery */
+        .art-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+
+        .art-piece {
+            position: relative;
+            border-radius: 15px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+            cursor: pointer;
+        }
+
+        .art-piece:hover {
+            transform: scale(1.05);
+            box-shadow: 0 20px 40px rgba(255, 107, 53, 0.3);
+        }
+
+        .art-piece img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+        }
+
+        .art-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(transparent, rgba(0,0,0,0.8));
+            color: white;
+            padding: 1rem;
+            transform: translateY(100%);
+            transition: all 0.3s ease;
+        }
+
+        .art-piece:hover .art-overlay {
+            transform: translateY(0);
+        }
+
+        /* Contact Section */
+        .contact-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+
+        .contact-info {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: rgba(78, 205, 196, 0.1);
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .contact-item:hover {
+            background: rgba(255, 107, 53, 0.1);
+            transform: translateX(10px);
+        }
+
+        .contact-icon {
+            width: 40px;
+            height: 40px;
+            margin-right: 1rem;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+        }
+
+        /* Timeline */
+        .timeline {
+            position: relative;
+            margin: 3rem 0;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 0;
+            bottom: 0;
+            width: 3px;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            transform: translateX(-50%);
+        }
+
+        .timeline-item {
+            display: flex;
+            justify-content: flex-end;
+            padding-right: calc(50% + 2rem);
+            position: relative;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-item:nth-child(even) {
+            justify-content: flex-start;
+            padding-right: 0;
+            padding-left: calc(50% + 2rem);
+        }
+
+        .timeline-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 1.5rem;
+            border-radius: 15px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(78, 205, 196, 0.2);
+            max-width: 400px;
+            transition: all 0.3s ease;
+        }
+
+        .timeline-content:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(78, 205, 196, 0.2);
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: 50%;
+            top: 1rem;
+            width: 20px;
+            height: 20px;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            border-radius: 50%;
+            transform: translateX(-50%);
+            border: 3px solid #0f0f23;
+        }
+
+        .timeline-year {
+            color: #FFD700;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero {
+                padding: 1rem;
+                min-height: 100vh;
+            }
+
+            .section {
+                padding: 3rem 1rem;
+            }
+
+            .timeline::before {
+                left: 2rem;
+            }
+
+            .timeline-item {
+                padding-right: 0;
+                padding-left: 4rem;
+                justify-content: flex-start;
+            }
+
+            .timeline-item:nth-child(even) {
+                padding-left: 4rem;
+                padding-right: 0;
+            }
+
+            .timeline-dot {
+                left: 2rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Scroll Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #1a1a2e;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4);
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-animation">
+        <div class="musical-note" style="left: 10%; animation-delay: 0s;">♪</div>
+        <div class="musical-note" style="left: 20%; animation-delay: 3s;">♫</div>
+        <div class="musical-note" style="left: 30%; animation-delay: 6s;">♪</div>
+        <div class="musical-note" style="left: 40%; animation-delay: 9s;">♬</div>
+        <div class="musical-note" style="left: 50%; animation-delay: 12s;">♪</div>
+        <div class="musical-note" style="left: 60%; animation-delay: 15s;">♫</div>
+        <div class="musical-note" style="left: 70%; animation-delay: 18s;">♪</div>
+        <div class="musical-note" style="left: 80%; animation-delay: 21s;">♬</div>
+        <div class="musical-note" style="left: 90%; animation-delay: 24s;">♪</div>
+    </div>
+
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Ratul Das</div>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#achievements">Achievements</a></li>
+                <li><a href="#art">Art</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Where Bengali Melodies Meet Modern Code</h1>
+            <div class="hero-subtitle">Ratul Das Rudra</div>
+            <div class="hero-tagline">Computer Science Student • Harmonium Virtuoso • Rural Innovator</div>
+            
+            <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Ccircle cx='100' cy='100' r='90' fill='%23FF6B35' opacity='0.1'/%3E%3Ctext x='100' y='110' font-family='Arial' font-size='20' text-anchor='middle' fill='%234ECDC4'%3ERatul Das%3C/text%3E%3C/svg%3E" alt="Ratul Das" class="hero-image">
+
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <div class="stat-number">3.9</div>
+                    <div class="stat-label">GPA</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">Top 10%</div>
+                    <div class="stat-label">Class Rank</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100+</div>
+                    <div class="stat-label">Songs Mastered</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">30+</div>
+                    <div class="stat-label">Students Tutored</div>
+                </div>
+            </div>
+
+            <div class="cta-buttons">
+                <a href="#projects" class="btn btn-primary">View My Work</a>
+                <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="section">
+        <h2 class="section-title">Official Certifications & Recognition</h2>
+        <div class="certificates-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; margin-top: 3rem;">
+            
+            <div class="certificate-card fade-in" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="openModal('qcec-cert')">
+                <div style="text-align: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 215, 0, 0.5);">
+                        <span style="color: #FFD700; font-size: 3rem;">🏆</span>
+                    </div>
+                    <h3 style="color: #FFD700; margin-bottom: 0.5rem;">Queen's Commonwealth Essay Competition</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Bronze Medal 2023 - International Recognition</p>
+                    <span style="color: #4ECDC4; font-size: 0.9rem;">Click to view full certificate</span>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(78, 205, 196, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="openModal('climate-cert')">
+                <div style="text-align: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 53, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(78, 205, 196, 0.5);">
+                        <span style="color: #4ECDC4; font-size: 3rem;">🧪</span>
+                    </div>
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Climate Science Olympiad</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Quarter-Finalist 2023 - Scientific Excellence</p>
+                    <span style="color: #4ECDC4; font-size: 0.9rem;">Click to view full certificate</span>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="openModal('jsc-cert')">
+                <div style="text-align: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(78, 205, 196, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 215, 0, 0.5);">
+                        <span style="color: #FFD700; font-size: 3rem;">🎓</span>
+                    </div>
+                    <h3 style="color: #FFD700; margin-bottom: 0.5rem;">National Merit Scholarship</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">JSC Scholarship 2019 - Top 0.004% Nationally</p>
+                    <span style="color: #4ECDC4; font-size: 0.9rem;">Click to view full certificate</span>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 107, 53, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="openModal('dpt-cert')">
+                <div style="text-align: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(78, 205, 196, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 107, 53, 0.5);">
+                        <span style="color: #FF6B35; font-size: 3rem;">🌍</span>
+                    </div>
+                    <h3 style="color: #FF6B35; margin-bottom: 0.5rem;">DP Tutorials Campus Envoy</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Community Leadership 2024 - Study Abroad Advocacy</p>
+                    <span style="color: #4ECDC4; font-size: 0.9rem;">Click to view full certificate</span>
+                </div>
+            </div>
+
+            <div class="certificate-card fade-in" style="background: rgba(255, 255, 255, 0.05); padding: 2rem; border-radius: 20px; backdrop-filter: blur(10px); border: 1px solid rgba(255, 215, 0, 0.3); transition: all 0.3s ease; cursor: pointer;" onclick="openModal('music-cert')">
+                <div style="text-align: center;">
+                    <div style="width: 100%; height: 200px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 215, 0, 0.5);">
+                        <span style="color: #FFD700; font-size: 3rem;">🎵</span>
+                    </div>
+                    <h3 style="color: #FFD700; margin-bottom: 0.5rem;">Music Competition Awards</h3>
+                    <p style="opacity: 0.8; margin-bottom: 1rem;">Regional & National Singing Championships</p>
+                    <span style="color: #4ECDC4; font-size: 0.9rem;">Click to view certificates</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Certificate Modal -->
+        <div id="certificateModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.9); z-index: 2000; align-items: center; justify-content: center;">
+            <div style="position: relative; max-width: 90%; max-height: 90%; background: white; border-radius: 15px; padding: 1rem;">
+                <span onclick="closeModal()" style="position: absolute; top: 10px; right: 20px; font-size: 2rem; cursor: pointer; color: #333; z-index: 2001;">&times;</span>
+                <img id="modalImage" src="" alt="Certificate" style="width: 100%; height: auto; border-radius: 10px;">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title">The Harmonium Programmer</h2>
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <h3>🎵 Musical Heritage</h3>
+                <p>Mastering traditional Bengali harmonium since grade 5, I've performed 100+ songs including Rabindra Sangeet, Nazrul Sangeet, and Palli Geeti. Winner of multiple regional and national singing competitions, I've learned that music and code share the same DNA - precision, creativity, and endless practice.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>💻 Technical Innovation</h3>
+                <p>Self-taught programmer who discovered coding during COVID lockdown. Developed multiple Android applications using Kotlin, including Quizify and JetTipApp. My approach to debugging mirrors musical practice - patience, iteration, and unwavering determination until perfection.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>🌍 Global Impact</h3>
+                <p>From rural Bangladesh to international recognition, I've tutored 30+ students (improving grades from 4.11/5 to 5/5), led cultural organizations, and earned awards including Queen's Commonwealth Essay Competition Bronze Medal and Climate Science Olympiad Quarter-Finalist.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title">Featured Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-title">🧠 Quizify - Interactive Learning Platform</div>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li>• Android quiz app helping rural students practice exam preparation</li>
+                    <li>• Built with Kotlin featuring dynamic scoring and 20+ question categories</li>
+                    <li>• Used by 15+ local students, improved average test scores by 23%</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">Android Studio</span>
+                    <span class="tech-tag">SQLite</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/ratuldasrudra/Quiziffy" class="project-link">GitHub</a>
+                </div>
+            </div>
+            
+            <div class="project-card fade-in">
+                <div class="project-title">💰 JetTipApp - Smart Tip Calculator</div>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li>• Modern Android app with bill splitting and custom tip percentages</li>
+                    <li>• Built using Jetpack Compose with Material Design principles</li>
+                    <li>• Featured on GitHub with 50+ stars, downloaded by local community</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Kotlin</span>
+                    <span class="tech-tag">Jetpack Compose</span>
+                    <span class="tech-tag">Material Design</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/ratuldasrudra/Tip-Calc-App" class="project-link">GitHub</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-title">🚀 Quantum Computing Research</div>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li>• Published research article on quantum computing's technological impact</li>
+                    <li>• Analyzed quantum algorithms and future applications across industries</li>
+                    <li>• Article reached 500+ readers on Medium platform</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Research</span>
+                    <span class="tech-tag">Quantum Computing</span>
+                    <span class="tech-tag">Technical Writing</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://medium.com/@dasratul399/quantum-leap-how-quantum-computing-is-shaping-tomorrows-tech-landscape-fd41b3c0a7dd" class="project-link">Read Article</a>
+                </div>
+            </div>
+
+            <div class="project-card fade-in">
+                <div class="project-title">🤖 Machine Learning Exploration</div>
+                <ul style="list-style: none; padding: 0; line-height: 1.8;">
+                    <li>• Comprehensive guide breaking down ML concepts for beginners</li>
+                    <li>• Published technical article with practical Python examples</li>
+                    <li>• Article reached 750+ readers, shared across tech communities</li>
+                </ul>
+                <div class="project-tech">
+                    <span class="tech-tag">Machine Learning</span>
+                    <span class="tech-tag">Python</span>
+                    <span class="tech-tag">Technical Writing</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://medium.com/@dasratul399/demystifying-machine-learning-a-journey-from-basics-to-brilliance-aa551db37acd" class="project-link">Read Article</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievement Timeline -->
+    <section id="achievements" class="section">
+        <h2 class="section-title">Achievement Timeline</h2>
+        <div class="timeline">
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-year">2024</div>
+                    <h3>Community Leadership</h3>
+                    <p>Campus Envoy for DP Tutorials - Organized study abroad guidance events for 50+ students. Developed outreach programs connecting rural students with international education opportunities.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-year">2023</div>
+                    <h3>International Recognition</h3>
+                    <p>Bronze Medal - The Queen's Commonwealth Essay Competition (International) | Climate Science Olympiad Quarter-Finalist</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-year">2019</div>
+                    <h3>National Excellence</h3>
+                    <p>Junior School Certificate Scholarship - Selected among 2.5 million students nationwide. Led programming club to organize 20+ coding workshops.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-year">2020-2021</div>
+                    <h3>COVID Innovation</h3>
+                    <p>Self-taught programming during lockdown. Developed first Android applications. Continued tutoring students virtually, maintaining their academic progress.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+            
+            <div class="timeline-item fade-in">
+                <div class="timeline-content">
+                    <div class="timeline-year">2018-2019</div>
+                    <h3>Musical Foundation</h3>
+                    <p>Champion of National Educational Week Singing Competition (2018). National Participant in Educational Week Contest (2019). Established musical leadership in school cultural programs.</p>
+                </div>
+                <div class="timeline-dot"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Achievements Grid -->
+    <section class="section">
+        <h2 class="section-title">Recognition & Awards</h2>
+        <div class="achievements-grid">
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">🏆</div>
+                <div class="achievement-title">International Excellence</div>
+                <div class="achievement-desc">Bronze Medal - The Queen's Commonwealth Essay Competition 2023. Competed among students from 54 Commonwealth nations.</div>
+                <div style="margin-top: 1rem;">
+                    <a href="#certificates" style="color: #FFD700; text-decoration: none; font-size: 0.9rem; font-weight: 500;">📜 View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">🧪</div>
+                <div class="achievement-title">Science Competition</div>
+                <div class="achievement-desc">Quarter-Finalist - Climate Science Olympiad 2023. Advanced scientific research and environmental problem-solving recognition.</div>
+                <div style="margin-top: 1rem;">
+                    <a href="#certificates" style="color: #FFD700; text-decoration: none; font-size: 0.9rem; font-weight: 500;">📜 View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">🎓</div>
+                <div class="achievement-title">National Scholarship</div>
+                <div class="achievement-desc">Junior School Certificate Scholarship (2019) - Selected among 2.5 million students nationally for academic excellence.</div>
+                <div style="margin-top: 1rem;">
+                    <a href="#certificates" style="color: #FFD700; text-decoration: none; font-size: 0.9rem; font-weight: 500;">📜 View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">🎵</div>
+                <div class="achievement-title">Musical Excellence</div>
+                <div class="achievement-desc">Multiple regional and national singing competition victories. Champion of National Educational Week Singing Competition.</div>
+                <div style="margin-top: 1rem;">
+                    <a href="#certificates" style="color: #FFD700; text-decoration: none; font-size: 0.9rem; font-weight: 500;">📜 View Certificates</a>
+                </div>
+            </div>
+            
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">🌍</div>
+                <div class="achievement-title">Community Leadership</div>
+                <div class="achievement-desc">Campus Envoy for DP Tutorials (2024) - Organized study abroad guidance events, connected 50+ rural students with international education opportunities.</div>
+                <div style="margin-top: 1rem;">
+                    <a href="#certificates" style="color: #FFD700; text-decoration: none; font-size: 0.9rem; font-weight: 500;">📜 View Certificate</a>
+                </div>
+            </div>
+            
+            <div class="achievement-card fade-in">
+                <div class="achievement-icon">👨‍🏫</div>
+                <div class="achievement-title">Educational Impact</div>
+                <div class="achievement-desc">Tutored 30+ students without compensation, improving average grades from 4.11/5 to 5/5. Created comprehensive study materials and teaching methodologies.</div>
+                <div style="margin-top: 1rem;">
+                    <span style="color: #4ECDC4; font-size: 0.9rem; font-weight: 500;">📊 Documented Results</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Art Portfolio -->
+    <section id="art" class="section">
+        <h2 class="section-title">Artistic Expression</h2>
+        <p style="text-align: center; margin-bottom: 2rem; opacity: 0.9;">Self-taught sketching artist inspired by creativity and human expression. Each piece represents a journey of observation, patience, and artistic growth.</p>
+        <div class="art-gallery">
+            <div class="art-piece fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23f5f5f5'/%3E%3Ctext x='150' y='150' font-family='Arial' font-size='16' text-anchor='middle' fill='%23666'%3EPortrait Sketch%3C/text%3E%3C/svg%3E" alt="Portrait Sketch">
+                <div class="art-overlay">
+                    <h4>Portrait Studies</h4>
+                    <p>Detailed pencil portraits focusing on human expression and emotion</p>
+                </div>
+            </div>
+            
+            <div class="art-piece fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23f0f0f0'/%3E%3Ctext x='150' y='150' font-family='Arial' font-size='16' text-anchor='middle' fill='%23666'%3EFigurative Art%3C/text%3E%3C/svg%3E" alt="Figurative Drawing">
+                <div class="art-overlay">
+                    <h4>Character Studies</h4>
+                    <p>Exploring human form and cultural representation through detailed sketching</p>
+                </div>
+            </div>
+            
+            <div class="art-piece fade-in">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 300'%3E%3Crect width='300' height='300' fill='%23fafafa'/%3E%3Ctext x='150' y='150' font-family='Arial' font-size='16' text-anchor='middle' fill='%23666'%3ERealistic Drawing%3C/text%3E%3C/svg%3E" alt="Realistic Portrait">
+                <div class="art-overlay">
+                    <h4>Realistic Portraiture</h4>
+                    <p>Advanced shading techniques and proportion studies in graphite</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section class="section">
+        <h2 class="section-title">Technical & Creative Skills</h2>
+        <div class="skills-container">
+            <div class="skill-category fade-in">
+                <h3>Programming & Development</h3>
+                <div class="skill-item">
+                    <span>Kotlin</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Android Development</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 80%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>C++</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 75%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Python</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 70%;"></div></div>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>Creative & Musical</h3>
+                <div class="skill-item">
+                    <span>Harmonium Performance</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 95%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Vocal Music</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Sketching & Drawing</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Cultural Performance</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                </div>
+            </div>
+            
+            <div class="skill-category fade-in">
+                <h3>Leadership & Communication</h3>
+                <div class="skill-item">
+                    <span>Team Leadership</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 90%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Teaching & Mentoring</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 92%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Event Organization</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 85%;"></div></div>
+                </div>
+                <div class="skill-item">
+                    <span>Cross-Cultural Communication</span>
+                    <div class="skill-bar"><div class="skill-progress" style="width: 88%;"></div></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section class="section">
+        <h2 class="section-title">Community Impact</h2>
+        <div class="about-grid">
+            <div class="about-card fade-in">
+                <h3>🎯 Educational Excellence</h3>
+                <p>Transformed 30+ students' academic performance through personalized tutoring. Developed comprehensive chapter-wise notes and innovative teaching methodologies. Average grade improvement from 4.11/5 to 5/5 demonstrates measurable impact on rural education.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>🌟 Cultural Leadership</h3>
+                <p>Led school cultural programs to regional and national victories. Organized 20+ inter-school competitions with 500+ participants. Mentored 50+ junior performers, bridging traditional Bengali music with contemporary formats.</p>
+            </div>
+            <div class="about-card fade-in">
+                <h3>🚀 Technology Advocacy</h3>
+                <p>Influenced 100+ students to join programming initiatives. Organized coding workshops and technology literacy programs. Published technical articles reaching international audiences on platforms like Medium.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title">Let's Connect</h2>
+        <div class="contact-container">
+            <div class="contact-info fade-in">
+                <h3 style="color: #4ECDC4; margin-bottom: 2rem;">Get In Touch</h3>
+                <div class="contact-item">
+                    <div class="contact-icon">📧</div>
+                    <div>
+                        <div style="font-weight: 600;">Email</div>
+                        <div style="opacity: 0.8;">dasratul399@gmail.com</div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💼</div>
+                    <div>
+                        <div style="font-weight: 600;">LinkedIn</div>
+                        <div style="opacity: 0.8;"><a href="https://www.linkedin.com/in/ratul-das-rudra2005/" style="color: #4ECDC4; text-decoration: none;">Connect with me</a></div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">💻</div>
+                    <div>
+                        <div style="font-weight: 600;">GitHub</div>
+                        <div style="opacity: 0.8;"><a href="https://github.com/ratuldasrudra" style="color: #4ECDC4; text-decoration: none;">@ratuldasrudra</a></div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="contact-icon">🌍</div>
+                    <div>
+                        <div style="font-weight: 600;">Location</div>
+                        <div style="opacity: 0.8;">Dhaka, Bangladesh</div>
+                    </div>
+                </div>
+            </div>
+            
+                            <div class="contact-info fade-in">
+                <h3 style="color: #FF6B35; margin-bottom: 2rem;">Academic Interests</h3>
+                <div style="padding: 1.5rem; background: rgba(255, 107, 53, 0.1); border-radius: 15px; border: 1px solid rgba(255, 107, 53, 0.2);">
+                    <p style="line-height: 1.8; margin-bottom: 1rem;">Exploring Computer Science programs that value innovation, cultural diversity, and interdisciplinary research. Passionate about bridging traditional culture with modern technology for social impact.</p>
+                    <p style="line-height: 1.8; color: #4ECDC4; font-weight: 500;">Available for research collaborations and academic mentorship opportunities.</p>
+                </div>
+                
+                <div style="margin-top: 2rem;">
+                    <h4 style="color: #FFD700; margin-bottom: 1rem;">Research Interests</h4>
+                    <ul style="list-style: none; padding: 0;">
+                        <li style="padding: 0.5rem 0; opacity: 0.9;">🔬 AI applications in cultural preservation</li>
+                        <li style="padding: 0.5rem 0; opacity: 0.9;">📱 EdTech solutions for rural communities</li>
+                        <li style="padding: 0.5rem 0; opacity: 0.9;">🎵 Digital ethnomusicology research</li>
+                        <li style="padding: 0.5rem 0; opacity: 0.9;">🌍 Technology for social equity and access</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer style="background: rgba(15, 15, 35, 0.8); padding: 2rem; text-align: center; border-top: 1px solid rgba(78, 205, 196, 0.2);">
+        <p style="opacity: 0.8; margin-bottom: 1rem;">"Every line of code is like a note in a song - precision, creativity, and harmony create magic."</p>
+        <p style="opacity: 0.6;">© 2025 Ratul Das. Built with passion for innovation and cultural preservation.</p>
+        <div style="margin-top: 1rem;">
+            <a href="https://github.com/ratuldasrudra" style="color: #4ECDC4; margin: 0 1rem; text-decoration: none;">GitHub</a>
+            <a href="https://www.linkedin.com/in/ratul-das-rudra2005/" style="color: #4ECDC4; margin: 0 1rem; text-decoration: none;">LinkedIn</a>
+            <a href="https://medium.com/@dasratul399" style="color: #4ECDC4; margin: 0 1rem; text-decoration: none;">Medium</a>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Fade in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 100) {
+                nav.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                nav.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+
+        // Dynamic typing effect for hero
+        const heroSubtitle = document.querySelector('.hero-tagline');
+        const roles = ['Computer Science Student', 'Harmonium Virtuoso', 'Rural Innovator', 'Cultural Bridge Builder'];
+        let currentRole = 0;
+        
+        setInterval(() => {
+            heroSubtitle.style.opacity = '0';
+            setTimeout(() => {
+                heroSubtitle.textContent = roles[currentRole] + ' • ' + roles[(currentRole + 1) % roles.length] + ' • ' + roles[(currentRole + 2) % roles.length];
+                heroSubtitle.style.opacity = '1';
+                currentRole = (currentRole + 1) % roles.length;
+            }, 300);
+        }, 4000);
+
+        // Add random musical notes
+        function createMusicalNote() {
+            const notes = ['♪', '♫', '♬', '♩', '♭', '♯'];
+            const note = document.createElement('div');
+            note.classList.add('musical-note');
+            note.textContent = notes[Math.floor(Math.random() * notes.length)];
+            note.style.left = Math.random() * 100 + '%';
+            note.style.animationDuration = (Math.random() * 10 + 10) + 's';
+            note.style.animationDelay = Math.random() * 5 + 's';
+            
+            document.querySelector('.bg-animation').appendChild(note);
+            
+            setTimeout(() => {
+                note.remove();
+            }, 20000);
+        }
+
+        setInterval(createMusicalNote, 3000);
+
+        // Certificate modal functionality
+        function openModal(certType) {
+            const modal = document.getElementById('certificateModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            // You'll replace these with actual certificate image paths
+            const certificates = {
+                'qcec-cert': 'path/to/qcec-certificate.jpg',
+                'climate-cert': 'path/to/climate-olympiad-certificate.jpg', 
+                'jsc-cert': 'path/to/jsc-scholarship-certificate.jpg',
+                'dpt-cert': 'path/to/dpt-campus-envoy-certificate.jpg',
+                'music-cert': 'path/to/music-awards-certificates.jpg'
+            };
+            
+            modalImage.src = certificates[certType] || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="%23666"%3ECertificate Image%3C/text%3E%3C/svg%3E';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('certificateModal');
+            modal.style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+
+        // Close modal when clicking outside
+        document.getElementById('certificateModal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+
+        // Skill bar animations
+        function animateSkillBars() {
+            const skillBars = document.querySelectorAll('.skill-progress');
+            skillBars.forEach(bar => {
+                const width = bar.style.width;
+                bar.style.width = '0%';
+                setTimeout(() => {
+                    bar.style.width = width;
+                }, 500);
+            });
+        }
+
+        // Trigger skill animation when skills section is visible
+        const skillsObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    animateSkillBars();
+                }
+            });
+        }, { threshold: 0.5 });
+
+        const skillsSection = document.querySelector('.skills-container');
+        if (skillsSection) {
+            skillsObserver.observe(skillsSection);
+        }
+    </script>
+</body>
+</html>
