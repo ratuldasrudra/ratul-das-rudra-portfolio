@@ -32,6 +32,7 @@
             z-index: 1000;
             transition: all 0.3s ease;
             border-bottom: 1px solid rgba(78, 205, 196, 0.2);
+            height: 80px;
         }
 
         .nav-container {
@@ -78,7 +79,8 @@
             justify-content: center;
             text-align: center;
             padding: 2rem;
-            padding-top: 5rem;
+            padding-top: calc(80px + 2rem);
+            margin-top: 0;
         }
 
         .hero-content h1 {
@@ -150,6 +152,7 @@
             padding: 5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
+            scroll-margin-top: 100px;
         }
 
         .section-title {
@@ -288,39 +291,54 @@
             background: rgba(0,0,0,0.9);
             align-items: center;
             justify-content: center;
+            padding: 2rem;
         }
 
         .modal-content {
             position: relative;
-            max-width: 90%;
-            max-height: 90%;
+            max-width: 95vw;
+            max-height: 95vh;
             background: white;
             border-radius: 15px;
-            overflow: hidden;
+            overflow: auto;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.5);
         }
 
         .modal img {
             width: 100%;
             height: auto;
             display: block;
+            border-radius: 15px;
         }
 
         .close-modal {
             position: absolute;
-            top: 15px;
-            right: 25px;
+            top: 10px;
+            right: 15px;
             color: #333;
-            font-size: 2rem;
+            font-size: 1.8rem;
             font-weight: bold;
             cursor: pointer;
             z-index: 2001;
-            background: rgba(255,255,255,0.8);
-            width: 40px;
-            height: 40px;
+            background: rgba(255,255,255,0.9);
+            width: 35px;
+            height: 35px;
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .close-modal:hover {
+            background: rgba(255,255,255,1);
+            transform: scale(1.1);
+        }
+
+        /* Photography Section Styles */
+        .photo-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 50px rgba(78, 205, 196, 0.3);
         }
 
         /* Grid layouts */
@@ -463,17 +481,24 @@
 
         /* Responsive Design */
         @media (max-width: 768px) {
+            nav {
+                height: 70px;
+                padding: 0.8rem 1.5rem;
+            }
+            
             .nav-links {
                 display: none;
             }
             
             .hero {
                 padding: 1rem;
+                padding-top: calc(70px + 1rem);
                 min-height: 100vh;
             }
             
             .section {
                 padding: 3rem 1rem;
+                scroll-margin-top: 80px;
             }
             
             .stats-grid {
@@ -501,6 +526,7 @@
                 <li><a href="#academics">Academics & Awards</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#projects">Projects & Passions</a></li>
+                <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
@@ -745,6 +771,108 @@
         </div>
     </section>
 
+    <!-- Photography Section -->
+    <section id="photography" class="section">
+        <h2 class="section-title">Mobile Photography Portfolio</h2>
+        
+        <div class="about-intro fade-in">
+            <h3>Capturing Rural Bangladesh Through My Lens</h3>
+            <p>Inspired by the movie "3 Idiots," I began my photography journey in 10th grade using only my mobile phone. What started as curiosity evolved into a passion for documenting the beauty of rural Bangladesh - from golden countryside landscapes to intimate moments of daily life. Each photograph tells a story of resilience, tradition, and the quiet magnificence often overlooked in rural communities.</p>
+        </div>
+
+        <div class="photography-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
+            
+            <!-- Landscape Photography -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('landscape1')">
+                <img src="images/photography/rural-landscape1.jpg" alt="Golden Hour Countryside" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Golden Hour Fields</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Captured during evening prayers, showcasing the serene beauty of rural Bangladesh's agricultural landscape.</p>
+                </div>
+            </div>
+
+            <!-- Portrait/People Photography -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('people1')">
+                <img src="images/photography/rural-life1.jpg" alt="Village Life Moment" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Everyday Moments</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Documenting the authentic expressions and daily rhythms of rural community life.</p>
+                </div>
+            </div>
+
+            <!-- Architecture/Cultural -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('culture1')">
+                <img src="images/photography/traditional-architecture.jpg" alt="Traditional Bengali Architecture" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Cultural Heritage</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Traditional Bengali architecture and cultural landmarks preserving centuries of heritage.</p>
+                </div>
+            </div>
+
+            <!-- Nature/Wildlife -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('nature1')">
+                <img src="images/photography/nature-close-up.jpg" alt="Nature Close-up" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Natural Details</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Macro photography exploring the intricate beauty of Bangladesh's diverse flora and fauna.</p>
+                </div>
+            </div>
+
+            <!-- Water/Rivers -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+                <img src="images/photography/river-scene.jpg" alt="River and Boats" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Rivers of Life</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Capturing Bangladesh's river-dependent lifestyle and the poetry of water transportation.</p>
+                </div>
+            </div>
+
+            <!-- Street/Documentary -->
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('street1')">
+                <img src="images/photography/street-scene.jpg" alt="Rural Street Photography" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Street Stories</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Documentary-style photography capturing unguarded moments and authentic rural narratives.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Photography Skills & Recognition -->
+        <div class="grid-2" style="margin-top: 4rem;">
+            <div class="card fade-in">
+                <h3>📱 Technical Approach</h3>
+                <div class="card-impact">Self-taught mobile photography mastery</div>
+                <ul>
+                    <li>Advanced composition techniques (Rule of thirds, leading lines, framing)</li>
+                    <li>Natural lighting expertise (Golden hour, blue hour, overcast conditions)</li>
+                    <li>Mobile editing proficiency (Adobe Lightroom Mobile, Snapseed)</li>
+                    <li>Portrait and landscape optimization for smartphone cameras</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Composition</span>
+                    <span class="tech-tag">Natural Lighting</span>
+                    <span class="tech-tag">Mobile Editing</span>
+                </div>
+            </div>
+
+            <div class="card fade-in">
+                <h3>🌟 Cultural Documentation</h3>
+                <div class="card-impact">200+ photographs documenting rural Bengali life</div>
+                <ul>
+                    <li>Participated in local photography exhibitions and contests</li>
+                    <li>Created visual narrative of disappearing traditional practices</li>
+                    <li>Showcased work at school cultural events and community gatherings</li>
+                    <li>Developed eye for capturing authentic, unposed moments</li>
+                </ul>
+                <div class="tech-tags">
+                    <span class="tech-tag">Documentary Style</span>
+                    <span class="tech-tag">Cultural Preservation</span>
+                    <span class="tech-tag">Visual Storytelling</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Contact Section -->
     <section id="contact" class="section">
         <h2 class="section-title">Let's Connect</h2>
@@ -800,49 +928,6 @@
                         <li style="padding: 0.5rem 0; opacity: 0.9;">🎵 Digital ethnomusicology and cultural documentation</li>
                         <li style="padding: 0.5rem 0; opacity: 0.9;">🌍 Technology for social equity and educational access</li>
                     </ul>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Documents Section -->
-    <section class="section">
-        <h2 class="section-title">Official Documents & Evidence</h2>
-        <div style="text-align: center; margin-bottom: 2rem;">
-            <p style="font-size: 1.1rem; opacity: 0.9;">Supporting documentation for academic achievements and leadership experience</p>
-        </div>
-        
-        <div class="grid-3">
-            <div class="certificate-card fade-in">
-                <div style="height: 220px; background: linear-gradient(135deg, rgba(78, 205, 196, 0.1), rgba(255, 107, 53, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(78, 205, 196, 0.5);">
-                    <span style="font-size: 3rem; color: #4ECDC4;">📋</span>
-                </div>
-                <div class="cert-content">
-                    <div class="cert-title">Academic Transcripts</div>
-                    <div class="cert-impact">Official HSC & SSC Results - Top 10% Class Rank</div>
-                    <div class="cert-description">Complete academic records demonstrating consistent excellence across all subjects. GPA progression showing sustained high performance throughout secondary education.</div>
-                </div>
-            </div>
-
-            <div class="certificate-card fade-in">
-                <div style="height: 220px; background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 107, 53, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 215, 0, 0.5);">
-                    <span style="font-size: 3rem; color: #FFD700;">✍️</span>
-                </div>
-                <div class="cert-content">
-                    <div class="cert-title">Letters of Recommendation</div>
-                    <div class="cert-impact">Three detailed recommendations from Physics, Math, and English teachers</div>
-                    <div class="cert-description">Comprehensive evaluations highlighting academic excellence, leadership abilities, and character. Teachers emphasize programming club transformation, tutoring impact, and intellectual curiosity.</div>
-                </div>
-            </div>
-
-            <div class="certificate-card fade-in">
-                <div style="height: 220px; background: linear-gradient(135deg, rgba(255, 107, 53, 0.1), rgba(78, 205, 196, 0.1)); border-radius: 10px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; border: 2px dashed rgba(255, 107, 53, 0.5);">
-                    <span style="font-size: 3rem; color: #FF6B35;">🏆</span>
-                </div>
-                <div class="cert-content">
-                    <div class="cert-title">Award Certificates</div>
-                    <div class="cert-impact">Complete collection of competition victories and recognitions</div>
-                    <div class="cert-description">Official certificates from music competitions, academic olympiads, essay competitions, and leadership positions. Documented evidence of sustained excellence across multiple domains.</div>
                 </div>
             </div>
         </div>
@@ -940,6 +1025,25 @@
             };
             
             modalImage.src = certificates[certType] || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="%23666"%3ECertificate Image%3C/text%3E%3C/svg%3E';
+            modal.style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        // Photo modal functionality
+        function openPhotoModal(photoType) {
+            const modal = document.getElementById('certificateModal');
+            const modalImage = document.getElementById('modalImage');
+            
+            const photos = {
+                'landscape1': 'images/photography/rural-landscape1.jpg',
+                'people1': 'images/photography/rural-life1.jpg',
+                'culture1': 'images/photography/traditional-architecture.jpg',
+                'nature1': 'images/photography/nature-close-up.jpg',
+                'water1': 'images/photography/river-scene.jpg',
+                'street1': 'images/photography/street-scene.jpg'
+            };
+            
+            modalImage.src = photos[photoType] || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="%23666"%3EPhoto Image%3C/text%3E%3C/svg%3E';
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
