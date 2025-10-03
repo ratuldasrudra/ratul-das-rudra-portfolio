@@ -296,19 +296,25 @@
 
         .modal-content {
             position: relative;
-            max-width: 95vw;
-            max-height: 95vh;
-            background: white;
+            max-width: 90vw;
+            max-height: 90vh;
+            background: transparent;
             border-radius: 15px;
-            overflow: auto;
+            overflow: hidden;
             box-shadow: 0 25px 50px rgba(0,0,0,0.5);
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
 
         .modal img {
-            width: 100%;
+            width: auto;
             height: auto;
+            max-width: 100%;
+            max-height: 90vh;
             display: block;
             border-radius: 15px;
+            object-fit: contain;
         }
 
         .close-modal {
@@ -526,6 +532,7 @@
                 <li><a href="#academics">Academics & Awards</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#projects">Projects & Passions</a></li>
+                <li><a href="#art">Art & Sketches</a></li>
                 <li><a href="#photography">Photography</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -570,8 +577,8 @@
         <div class="about-intro fade-in">
             <h3>From Rural Bangladesh to Global Recognition</h3>
             <p>I am Ratul Das Rudra, an aspiring computer scientist, award-winning musician, and advocate for education access in rural Bangladesh. My journey has been shaped by resilience—whether transforming a small high school programming club into a 100+ member community, leading a cultural team to regional victories, or building Android apps that turn curiosity into practical tools.</p><br>
-            <p>Growing up in a rural environment with limited resources taught me to adapt, self-learn, and persist. From debugging my first quiz app late into the night to tutoring 30+ students who raised their grades against all odds, I’ve learned that technology and education can bridge opportunity gaps.</p><br>
-            <p>Music remains my second language. As president and lead of my cultural club, I’ve guided performances that not only won competitions but also brought people together, teaching me collaboration, leadership, and the discipline that now shapes my coding.</p>
+            <p>Growing up in a rural environment with limited resources taught me to adapt, self-learn, and persist. From debugging my first quiz app late into the night to tutoring 30+ students who raised their grades against all odds, I've learned that technology and education can bridge opportunity gaps.</p><br>
+            <p>Music remains my second language. As president and lead of my cultural club, I've guided performances that not only won competitions but also brought people together, teaching me collaboration, leadership, and the discipline that now shapes my coding.</p>
             <p>I am eager to continue blending creativity with technology—whether by building intuitive learning tools, contributing to inclusive communities, or harmonizing my passions in ways that create impact beyond myself</p>
             
         </div>
@@ -748,7 +755,7 @@
         </div>
     </section>
 
-   <!-- Art & Sketches Section -->
+    <!-- Art & Sketches Section -->
     <section id="art" class="section">
         <h2 class="section-title">Art & Sketches</h2>
         
@@ -760,7 +767,7 @@
         <div class="photography-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
             
             <!-- Sketch Card 1 -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('sketch1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch1.jpg" alt="Sketch 1" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Portrait Study</h3>
@@ -769,7 +776,7 @@
             </div>
 
             <!-- Sketch Card 2 -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('sketch2')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch2.jpg" alt="Sketch 2" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Nature Scene</h3>
@@ -778,7 +785,7 @@
             </div>
 
             <!-- Sketch Card 3 -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('sketch3')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch3.jpg" alt="Sketch 3" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Abstract Expression</h3>
@@ -787,7 +794,7 @@
             </div>
 
             <!-- Sketch Card 4 -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('sketch4')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch4.jpg" alt="Sketch 4" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Character Design</h3>
@@ -800,7 +807,6 @@
         </div>
     </section>
 
-    
     <!-- Photography Section -->
     <section id="photography" class="section">
         <h2 class="section-title">Mobile Photography Portfolio</h2>
@@ -812,10 +818,8 @@
 
         <div class="photography-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
             
-           
-
             <!-- Architecture/Cultural -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('culture1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/traditional-architecture1.jpg" alt="Traditional Bengali Architecture" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Cultural Heritage (Mosque)</h3>
@@ -824,7 +828,7 @@
             </div>
 
             <!-- Nature/Wildlife -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('nature1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/river-scene1.jpg" alt="Nature Close-up" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Natural Details</h3>
@@ -832,7 +836,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('culture1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/traditional-architecture2.jpg" alt="Traditional Bengali Architecture 2" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Cultural Heritage (Temple)</h3>
@@ -841,7 +845,7 @@
             </div>
 
              <!-- Landscape Photography -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('landscape1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/rural-landscape1.jpg" alt="Golden Hour Countryside" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Golden Hour Fields</h3>
@@ -849,7 +853,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/modern-bus-stand.jpg" alt="bus stand" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Modern Bus Stand</h3>
@@ -858,7 +862,7 @@
             </div>
 
              <!-- Portrait/People Photography -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('people1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/dragonfly-shot.jpg" alt="Village Life Moment" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Dragonfly Moments</h3>
@@ -867,7 +871,7 @@
             </div>
 
             <!-- Water/Rivers -->
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/river-scene3.jpg" alt="River and Boats" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Rivers of Life</h3>
@@ -875,7 +879,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/river-scene4.jpg" alt="River and Boats2" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Sunset in Rivers</h3>
@@ -883,7 +887,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/river-scene5.jpg" alt="River and Boats3" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Bridge With Dark Clouds</h3>
@@ -891,7 +895,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/sea-beach1.jpg" alt="sea beach1" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Bay of Bengal Beach</h3>
@@ -899,7 +903,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/sea-beach2.jpg" alt="sea beach1" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Cox's Bazar Sea Beach</h3>
@@ -907,7 +911,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/cute-couple-sea.jpg" alt="love together" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Love in The Waves</h3>
@@ -915,7 +919,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/young-father-daugter.jpg" alt="young-father-daugterr" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">The Princess's Steps</h3>
@@ -923,7 +927,7 @@
                 </div>
             </div>
 
-            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal('water1')">
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/photography/sea-sunset-view.jpg" alt="sea-sunset-view" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Sunset of Sugondha</h3>
@@ -1062,9 +1066,9 @@
 
     <!-- Certificate Modal -->
     <div id="certificateModal" class="modal">
+        <span class="close-modal" onclick="closeModal()">&times;</span>
         <div class="modal-content">
-            <span class="close-modal" onclick="closeModal()">&times;</span>
-            <img id="modalImage" src="" alt="Certificate">
+            <img id="modalImage" src="" alt="Photo Image">
         </div>
     </div>
 
@@ -1121,28 +1125,31 @@
                 'jugantor-cert': 'certificates/jugantor-testimonial.jpg'
             };
             
-            modalImage.src = certificates[certType] || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="%23666"%3ECertificate Image%3C/text%3E%3C/svg%3E';
+            modalImage.src = certificates[certType];
             modal.style.display = 'flex';
             document.body.style.overflow = 'hidden';
         }
 
-        // Photo modal functionality
-        function openPhotoModal(photoType) {
+        // Photo modal functionality - FIXED VERSION
+        function openPhotoModal() {
             const modal = document.getElementById('certificateModal');
             const modalImage = document.getElementById('modalImage');
             
-            const photos = {
-                'landscape1': 'images/photography/rural-landscape1.jpg',
-                'people1': 'images/photography/rural-life1.jpg',
-                'culture1': 'images/photography/traditional-architecture.jpg',
-                'nature1': 'images/photography/nature-close-up.jpg',
-                'water1': 'images/photography/river-scene.jpg',
-                'street1': 'images/photography/street-scene.jpg'
-            };
+            // Get the clicked card using event.currentTarget
+            const clickedCard = event.currentTarget;
+            const imgElement = clickedCard.querySelector('img');
             
-            modalImage.src = photos[photoType] || 'data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 300"%3E%3Crect width="400" height="300" fill="%23f0f0f0"/%3E%3Ctext x="200" y="150" font-family="Arial" font-size="16" text-anchor="middle" fill="%23666"%3EPhoto Image%3C/text%3E%3C/svg%3E';
-            modal.style.display = 'flex';
-            document.body.style.overflow = 'hidden';
+            if (imgElement && imgElement.src) {
+                // Directly use the src from the thumbnail image
+                modalImage.src = imgElement.src;
+                modal.style.display = 'flex';
+                document.body.style.overflow = 'hidden';
+                
+                // Debug log
+                console.log('Opening image:', imgElement.src);
+            } else {
+                console.error('Image not found in clicked card');
+            }
         }
 
         function closeModal() {
@@ -1171,33 +1178,6 @@
                 e.preventDefault();
             });
         });
-
-        // Mobile menu toggle (if needed)
-        document.addEventListener('DOMContentLoaded', function() {
-            // Add mobile menu functionality if needed
-            const navLinks = document.querySelector('.nav-links');
-            if (window.innerWidth <= 768) {
-                // Mobile-specific functionality can be added here
-            }
-        });
-
-        // Performance optimization: Lazy load images
-        if ('IntersectionObserver' in window) {
-            const imageObserver = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        const img = entry.target;
-                        img.src = img.dataset.src;
-                        img.classList.remove('lazy');
-                        imageObserver.unobserve(img);
-                    }
-                });
-            });
-
-            document.querySelectorAll('img[data-src]').forEach(img => {
-                imageObserver.observe(img);
-            });
-        }
     </script>
 </body>
 </html>
