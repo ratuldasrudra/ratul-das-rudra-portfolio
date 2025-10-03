@@ -113,6 +113,52 @@
             font-weight: 500;
         }
 
+        .profile-photo-container {
+            width: 200px;
+            height: 200px;
+            margin: 0 auto 2rem;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 4px solid rgba(78, 205, 196, 0.3);
+            box-shadow: 0 0 30px rgba(78, 205, 196, 0.4), 0 0 60px rgba(255, 107, 53, 0.2);
+            animation: profileGlow 3s ease-in-out infinite;
+            position: relative;
+        }
+
+        .profile-photo-container::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, #FF6B35, #4ECDC4, #FFD700);
+            border-radius: 50%;
+            z-index: -1;
+            animation: gradientRotate 4s linear infinite;
+        }
+        
+        @keyframes profileGlow {
+            0%, 100% { 
+                box-shadow: 0 0 30px rgba(78, 205, 196, 0.4), 0 0 60px rgba(255, 107, 53, 0.2);
+            }
+            50% { 
+                box-shadow: 0 0 40px rgba(255, 107, 53, 0.5), 0 0 80px rgba(78, 205, 196, 0.3);
+            }
+        }
+        
+        @keyframes gradientRotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        .profile-photo {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
         .stats-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
@@ -540,8 +586,12 @@
     </nav>
 
     <!-- Hero Section -->
+    <!-- Hero Section -->
     <section id="home" class="hero">
         <div class="hero-content">
+            <div class="profile-photo-container">
+                <img src="images/profile-photo.jpg" alt="Ratul Das Rudra - Professional Headshot" class="profile-photo">
+            </div>
             <h1>Bridging Bengal and Silicon Valley</h1>
             <div class="hero-subtitle">Ratul Das Rudra</div>
             <div class="hero-tagline">Top 5% CS Student • Harmonium Virtuoso • Rural Technology Advocate</div>
@@ -761,7 +811,7 @@
         
         <div class="about-intro fade-in">
             <h3>Visual Expression Through Pencil & Paper</h3>
-            <p>Beyond code and music, I explore creativity through sketching. Each piece represents moments of inspiration, practice in observation, and the joy of bringing imagination to life through traditional art forms.</p>
+            <p>Beyond code and music, I explore creativity through sketching. Each piece represents moments of inspiration, practice in observation, and the joy of bringing imagination to life through art forms.</p>
         </div>
 
         <div class="photography-grid" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem; margin-top: 3rem;">
@@ -770,8 +820,8 @@
             <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch1.jpg" alt="Sketch 1" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
-                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Portrait Study</h3>
-                    <p style="opacity: 0.8; font-size: 0.9rem;">Exploring light and shadow through pencil work.</p>
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Love Lines</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Exploring emotions through pencil work and lines.</p>
                 </div>
             </div>
 
@@ -779,8 +829,8 @@
             <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
                 <img src="images/artwork/sketch2.jpg" alt="Sketch 2" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
-                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Nature Scene</h3>
-                    <p style="opacity: 0.8; font-size: 0.9rem;">Capturing rural landscapes in graphite.</p>
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Character Portrait</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Capturing favorite character in graphite.</p>
                 </div>
             </div>
 
@@ -789,7 +839,7 @@
                 <img src="images/artwork/sketch3.jpg" alt="Sketch 3" style="width: 100%; height: 250px; object-fit: cover;">
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Abstract Expression</h3>
-                    <p style="opacity: 0.8; font-size: 0.9rem;">Experimental forms and patterns.</p>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">Experimental forms and shadows</p>
                 </div>
             </div>
 
@@ -799,6 +849,14 @@
                 <div style="padding: 1.5rem;">
                     <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Character Design</h3>
                     <p style="opacity: 0.8; font-size: 0.9rem;">Creative character illustrations.</p>
+                </div>
+            </div>
+
+            <div class="photo-card fade-in" style="background: rgba(255, 255, 255, 0.05); border-radius: 20px; overflow: hidden; transition: all 0.3s ease; cursor: pointer;" onclick="openPhotoModal()">
+                <img src="images/artwork/sketch5.jpg" alt="Sketch 5" style="width: 100%; height: 250px; object-fit: cover;">
+                <div style="padding: 1.5rem;">
+                    <h3 style="color: #4ECDC4; margin-bottom: 0.5rem;">Character Artwork</h3>
+                    <p style="opacity: 0.8; font-size: 0.9rem;">'Greek God' character portray.</p>
                 </div>
             </div>
 
